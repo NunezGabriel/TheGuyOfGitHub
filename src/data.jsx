@@ -20,3 +20,26 @@ export let beneficts = [
     text: "contribuir a proyectos de código abierto es muy valorado por la comunidad y por empresas",
   },
 ];
+
+export let missionsData = [
+  {
+    img: "/img/gold-removebg-preview.png",
+    text: "xxxxxxxxxxx",
+    dificult: [1],
+  },
+  {
+    img: "/img/blue-removebg-preview.png",
+    text: "xxxxxxxxxxx",
+    dificult: [1, 2],
+  },
+  {
+    img: "/img/esmerald-removebg-preview.png",
+    text: "xxxxxxxxxxx",
+    dificult: [1, 2, 3],
+  },
+  {
+    img: "/img/red-removebg-preview.png",
+    text: "xxxxxxxxxxx",
+    dificult: [1, 2, 3, 4],
+  },
+];

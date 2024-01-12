@@ -1,5 +1,6 @@
 "use client";
 import { beneficts } from "@/data";
+import Link from "next/link";
 
 const HomePage = () => {
   return (
@@ -34,7 +35,7 @@ const HomePage = () => {
       </div>
       <div
         className=" p-6 justify-center
-        items-center text-md text-pretty font-light flex flex-col gap-10" // POSSIBLE ENDPOINT IN FLEX DIRECTION
+        items-center text-md text-pretty font-light flex flex-col gap-10" // POSSIBLE BREAKPOINT IN FLEX DIRECTION
       >
         {beneficts.map((benefict) => {
           return (
@@ -63,9 +64,11 @@ const HomePage = () => {
           need them to become
           <span className="text-[#4dffcd]"> THE GUY OF GITHUB</span>.
         </p>
-        <button className="py-1 text-gray-950 px-4 rounded-xl w-30 jello-horizontal bg-[#4dffcd]">
-          Missions
-        </button>
+        <Link href={"/missions"}>
+          <button className="py-1 text-gray-950 px-4 rounded-xl w-30 jello-horizontal bg-[#4dffcd]">
+            Missions
+          </button>
+        </Link>
       </div>
     </div>
   );
