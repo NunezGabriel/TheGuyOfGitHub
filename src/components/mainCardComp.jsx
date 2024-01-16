@@ -1,7 +1,6 @@
-import { Result } from "postcss";
-import { useState, useEffect } from "react";
+import Image from "next/image";
 
-function MainCardComponent({ user }) {
+function MainCardComponent() {
   const useUser = () => {
     const [user, setUser] = useState(null);
 
@@ -28,7 +27,13 @@ function MainCardComponent({ user }) {
         items-center text-md text-pretty font-light flex flex-col gap-10" // POSSIBLE BREAKPOINT IN FLEX DIRECTION
     >
       <div className="w-full p-10 gap-6 bg-gray-950 flex flex-col items-center rounded-lg text-white">
-        <div className="bg-red-600 w-36 h-36 rounded-full"></div>
+        <Image
+          src={``}
+          className="border border-red-500 w-36 h-36 rounded-full"
+          width={36}
+          height={36}
+          alt="user image"
+        />
         <h1>Repositories: </h1>
         <h1>Stars: </h1>
         <h1>Followers: </h1>
