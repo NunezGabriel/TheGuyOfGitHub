@@ -1,24 +1,26 @@
-import { useState } from "react";
+import { Result } from "postcss";
+import { useState, useEffect } from "react";
 
 function MainCardComponent({ user }) {
-  //   const useUser = () => {
-  //     const [user, setUser] = useState(null);
+  const useUser = () => {
+    const [user, setUser] = useState(null);
 
-  //     const fetchUser = async () => {
-  //       const response = await fetch("https://api.github.com/users/NunezGabriel");
+    const fetchUser = async () => {
+      const response = await fetch("https://api.github.com/users/NunezGabriel");
 
-  //       if (response.status === 200) {
-  //         const data = await response.json();
-  //         setUser(data);
-  //       }
-  //     };
+      if (response.status === 200) {
+        const data = await response.json();
+        setUser(data);
+      }
+    };
 
-  //     useEffect(() => {
-  //       fetchUser();
-  //     }, []);
+    useEffect(() => {
+      fetchUser();
+    }, []);
 
-  //     return user;
-  //   };
+    console.log(user);
+    return user;
+  }; // si funciona este fetch ero no lo puedes guardar en una variable no se prq
 
   return (
     <div
