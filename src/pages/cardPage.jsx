@@ -1,13 +1,15 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const CardPage = () => {
+  const [value, setValue] = useState("");
   const [data, setData] = useState(null);
   useEffect(() => {
     const getData = async () => {
-      const res = await fetch("https://api.github.com/users/NunezGabriel");
+      const res = await fetch(`https://api.github.com/users/NunezGabriel`);
       const result = await res.json();
       setData(result);
     };
@@ -15,7 +17,6 @@ const CardPage = () => {
   }, []);
   console.log(data);
 
-  const [value, setValue] = useState("");
   return (
     <div>
       <div className=" p-6 justify-center items-center text-md text-pretty flex gap-4">
@@ -41,19 +42,32 @@ const CardPage = () => {
         items-center text-md text-pretty font-light flex flex-col gap-10" // POSSIBLE BREAKPOINT IN FLEX DIRECTION
       >
         <div className="w-full p-10 gap-6 bg-gray-950 flex flex-col items-center rounded-lg text-white">
-          <Image
-            src={``}
-            className="border border-red-500 w-36 h-36 rounded-full"
-            width={36}
-            height={36}
-            alt="user image"
-          />
           {data ? (
-            <div className="flex flex-col gap-4">
-              <h1>Repositories: {data.login}</h1>
+            <Image
+              src={`${data.avatar_url}`}
+              className="w-36 h-36 rounded-full"
+              width={36}
+              height={36}
+              alt="user image"
+            />
+          ) : (
+            console.log("XD")
+          )}
+          {data ? (
+            <div className="flex flex-col gap-4 text-center">
+              <h1>User Name: {data.login}</h1>
+              <h1>Name: {data.name}</h1>
+              <h1>Public Repositories: {data.public_repos}</h1>
               <h1>Stars: {data.login}</h1>
-              <h1>Followers: {data.login}</h1>
-              <h1>Contributions: {data.login}</h1>
+              <h1>Followers: {data.followers}</h1>
+              <h1>
+                Blog:{" "}
+                {data.blog ? (
+                  <Link href={`${data.blog}`}>✓ click to see it</Link>
+                ) : (
+                  <h1>No Blog</h1>
+                )}
+              </h1>
               <h1>Commits: {data.login}</h1>
               <h1>RESULT: {data.login}</h1>
             </div>
