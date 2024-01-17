@@ -1,11 +1,14 @@
+"use client";
 import Image from "next/image";
+import { useState, useEffect } from "react";
 
-function MainCardComponent() {
+function MainCardComponent({ userReal }) {
+  const [user, setUser] = useState(null);
   const useUser = () => {
-    const [user, setUser] = useState(null);
-
     const fetchUser = async () => {
-      const response = await fetch("https://api.github.com/users/NunezGabriel");
+      let response = await fetch(
+        `https://api.github.com/users/${userReal}/starred`
+      );
 
       if (response.status === 200) {
         const data = await response.json();
@@ -15,34 +18,15 @@ function MainCardComponent() {
 
     useEffect(() => {
       fetchUser();
-    }, []);
+    }, [userReal]);
 
     console.log(user);
     return user;
   }; // si funciona este fetch ero no lo puedes guardar en una variable no se prq
 
-  return (
-    <div
-      className=" p-6 justify-center
-        items-center text-md text-pretty font-light flex flex-col gap-10" // POSSIBLE BREAKPOINT IN FLEX DIRECTION
-    >
-      <div className="w-full p-10 gap-6 bg-gray-950 flex flex-col items-center rounded-lg text-white">
-        <Image
-          src={``}
-          className="border border-red-500 w-36 h-36 rounded-full"
-          width={36}
-          height={36}
-          alt="user image"
-        />
-        <h1>Repositories: </h1>
-        <h1>Stars: </h1>
-        <h1>Followers: </h1>
-        <h1>Contributions: </h1>
-        <h1>Commits: </h1>
-        <h1>RESULT: </h1>
-      </div>
-    </div>
-  );
+  let hpola = useUser();
+
+  return <div> </div>;
 }
 
 export default MainCardComponent;
