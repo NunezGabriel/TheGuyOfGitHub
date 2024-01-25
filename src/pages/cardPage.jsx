@@ -7,14 +7,19 @@ import { useEffect, useState } from "react";
 const CardPage = () => {
   const [value, setValue] = useState("");
   const [data, setData] = useState(null);
+  // const [error, setError] = useState(false);
   useEffect(() => {
     const getData = async () => {
-      const res = await fetch(`https://api.github.com/users/NunezGabriel`);
+      const res = await fetch(
+        `https://api.github.com/users/${value ? value : "NunezGabriel"}`
+      );
       const result = await res.json();
       setData(result);
     };
+
     getData();
-  }, []);
+  }, [value]); //RECUERDA CAMBIAR ESTO A NO CADA VEZ QEU SE ESCRIBA SI NO CUANDO SE MANDE EL VALOR CON EL BOTON SI NO DARA ERROR AL HACER MUCHOS REQUESTS A LA API
+  console.log(value);
   console.log(data);
 
   return (
