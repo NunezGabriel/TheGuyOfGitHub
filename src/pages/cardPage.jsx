@@ -7,7 +7,12 @@ import { useEffect, useState } from "react";
 const CardPage = () => {
   const [value, setValue] = useState("");
   const [data, setData] = useState(null);
-  // const [error, setError] = useState(false);
+  const [start, setStart] = useState(false);
+
+  const makeIt = () => {
+    setStart(!start);
+  };
+
   useEffect(() => {
     const getData = async () => {
       const res = await fetch(
@@ -16,11 +21,8 @@ const CardPage = () => {
       const result = await res.json();
       setData(result);
     };
-
     getData();
-  }, [value]); //RECUERDA CAMBIAR ESTO A NO CADA VEZ QEU SE ESCRIBA SI NO CUANDO SE MANDE EL VALOR CON EL BOTON SI NO DARA ERROR AL HACER MUCHOS REQUESTS A LA API
-  console.log(value);
-  console.log(data);
+  }, [start]);
 
   return (
     <div>
@@ -39,7 +41,14 @@ const CardPage = () => {
             alt="lupa-image"
           />
         </div>
-        <button className="py-1 px-2 rounded-xl w-20 bg-[#4dffcd]">Done</button>
+        <button
+          onClick={() => {
+            makeIt();
+          }}
+          className="py-1 px-2 rounded-xl w-20 bg-[#4dffcd]"
+        >
+          Done
+        </button>
       </div>
 
       <div
@@ -84,5 +93,4 @@ const CardPage = () => {
     </div>
   );
 };
-//mover eso a un componente donde se hara el fetch de ddatos pasando como props el value asi se hara bien
 export default CardPage;
