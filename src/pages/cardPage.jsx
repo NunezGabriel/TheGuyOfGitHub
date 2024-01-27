@@ -22,7 +22,7 @@ const CardPage = () => {
       setData(result);
     };
     getData();
-  }, [start]);
+  }, [start]); // FALTA CAPTURAR EL ERROR Y ESTARIA 10/10
 
   return (
     <div>
