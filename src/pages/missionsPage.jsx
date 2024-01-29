@@ -3,7 +3,7 @@ import { missionsData } from "@/data";
 import Link from "next/link";
 const MissionsPage = () => {
   return (
-    <div className=" text-gray-400 w-full">
+    <div className=" text-gray-400 mx-auto max-w-[1200px]">
       <div
         className=" p-6 justify-center
         items-center text-md text-pretty"
@@ -23,11 +23,11 @@ const MissionsPage = () => {
       </div>
       <div
         className=" p-6 justify-center
-        items-center text-md text-pretty font-light flex flex-col gap-10" // POSSIBLE BREAKPOINT IN FLEX DIRECTION
+        items-center text-md text-pretty font-light flex flex-wrap gap-10" // POSSIBLE BREAKPOINT IN FLEX DIRECTION
       >
         {missionsData.map((mission) => {
           return (
-            <div className="w-full p-7 cardContainer gap-6  flex flex-col rounded-lg">
+            <div className="w-full md:w-[400px] bg-gray-950  p-7 cardContainer gap-6  flex flex-col rounded-lg">
               <Image
                 src={mission.img}
                 width={330}

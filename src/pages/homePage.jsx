@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const HomePage = () => {
   return (
-    <div className=" text-gray-400 w-full">
+    <div className=" text-gray-400 md:mx-auto max-w-[1200px]">
       <div
         className="h-52 flex justify-center
         items-center text-6xl text-center text-white"
@@ -34,12 +34,11 @@ const HomePage = () => {
         </h1>
       </div>
       <div
-        className=" p-6 justify-center
-        items-center text-md text-pretty font-light flex flex-col gap-10" // POSSIBLE BREAKPOINT IN FLEX DIRECTION
+        className=" p-6 items-center justify-center text-md text-pretty font-light flex flex-wrap gap-10 " // POSSIBLE BREAKPOINT IN FLEX DIRECTION
       >
         {beneficts.map((benefict) => {
           return (
-            <div className="w-full p-10 gap-6 bg-gray-950 flex flex-col items-center rounded-lg text-gray-950">
+            <div className="w-full md:w-[500px] p-10 gap-6 bg-gray-950 flex flex-col items-center rounded-lg text-gray-950">
               <div className="bg-[#4dffcd]  text-3xl w-10 h-10 flex justify-center items-center rounded-full">
                 {benefict.id}
               </div>

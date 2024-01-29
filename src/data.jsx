@@ -17,7 +17,11 @@ export let beneficts = [
   },
   {
     id: "5",
-    text: "contribuir a proyectos de código abierto es muy valorado por la comunidad y por empresas",
+    text: "Contributing to open source projects is highly valued by the community and companies.",
+  },
+  {
+    id: "6",
+    text: "Companies will be able to see your projects and be able to determine if you can work with them",
   },
 ];
 

@@ -6,10 +6,10 @@ const NavBarComponent = () => {
   const pathname = usePathname();
 
   return (
-    <div className="w-full h-16 px-4 bg-gray-950 shadow-lg shadow-gray-900 flex justify-around items-center">
+    <div className="w-full h-16 px-4 bg-gray-950 shadow-lg shadow-gray-900 flex justify-around items-center ">
       <Link
         href={pathname == "/main-card" ? "/" : "/main-card"}
-        className="w-full py-1 px-2 rounded-xl text-center text-[#4dffcd] border border-[#4dffcd]"
+        className="w-full md:w-[300px] py-1 px-2 rounded-xl text-center text-[#4dffcd] border border-[#4dffcd]"
       >
         <button className="">
           {pathname == "/main-card" ? "Go Back" : "See your stats"}
